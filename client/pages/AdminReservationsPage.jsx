@@ -138,9 +138,9 @@ export function AdminReservationsPage() {
                     </td>
                     <td>
                       <span
-                        className={`status-text status-${r.status.toLowerCase().replace(/\s+/g, '-')}`}
+                        className={`status-text status-${(r.effectiveStatus || r.status).toLowerCase().replace(/\s+/g, '-')}`}
                       >
-                        {r.status}
+                        {r.effectiveStatus || r.status}
                       </span>
                     </td>
                     <td style={{ minWidth: '220px' }}>

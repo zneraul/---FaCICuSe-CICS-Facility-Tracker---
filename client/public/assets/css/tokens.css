@@ -50,6 +50,8 @@
   /* High-Contrast Semantic States on Blue-Purple Glass */
   --accent-sage: #5eead4;
   --accent-sage-soft: rgba(20, 184, 166, 0.18);
+  --accent-cyan: #22d3ee;
+  --accent-cyan-soft: rgba(34, 211, 238, 0.18);
   --accent-amber: #fcd34d;
   --accent-amber-soft: rgba(251, 191, 36, 0.18);
   --accent-indigo: #a5b4fc;

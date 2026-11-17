@@ -7,6 +7,7 @@ import {
   assertReservationValid,
   computeAdminAnalytics,
   computeDashboardMetrics,
+  computeEffectiveStatus,
   detectScheduleConflicts,
 } from './rules.js';
 import {
@@ -551,4 +552,50 @@ test('computeDashboardMetrics and computeAdminAnalytics exclude archived facilit
   assert.equal(secondFloorAnalytics.totals.reservations, 1);
   assert.equal(secondFloorAnalytics.facilityBreakdown[0].code, 'CICS-201');
   assert.deepEqual(secondFloorAnalytics.floorsAvailable, ['First Floor', 'Second Floor']);
+});
+
+test('computeEffectiveStatus returns Completed for past Confirmed reservations', () => {
+  const now = '2026-11-20T12:00:00.000Z';
+  
+  // Future reservation - should remain Confirmed
+  const futureConfirmed = {
+    status: 'Confirmed',
+    reservationDate: '2026-11-25',
+    endTime: '14:00',
+  };
+  assert.equal(computeEffectiveStatus(futureConfirmed, now), 'Confirmed');
+  
+  // Past reservation - should show as Completed
+  const pastConfirmed = {
+    status: 'Confirmed',
+    reservationDate: '2026-11-15',
+    endTime: '10:00',
+  };
+  assert.equal(computeEffectiveStatus(pastConfirmed, now), 'Completed');
+  
+  // Non-Confirmed statuses should pass through unchanged
+  assert.equal(computeEffectiveStatus({ status: 'Pending', reservationDate: '2026-11-15', endTime: '10:00' }, now), 'Pending');
+  assert.equal(computeEffectiveStatus({ status: 'Rejected', reservationDate: '2026-11-15', endTime: '10:00' }, now), 'Rejected');
+  assert.equal(computeEffectiveStatus({ status: 'Cancelled', reservationDate: '2026-11-15', endTime: '10:00' }, now), 'Cancelled');
+  assert.equal(computeEffectiveStatus({ status: 'Completed', reservationDate: '2026-11-15', endTime: '10:00' }, now), 'Completed');
+});
+
+test('computeEffectiveStatus handles edge case at exact end time', () => {
+  const now = '2026-11-20T14:00:00.000Z';
+  
+  // Reservation ending exactly now - should be Completed (end time has passed)
+  const endingNow = {
+    status: 'Confirmed',
+    reservationDate: '2026-11-20',
+    endTime: '14:00',
+  };
+  assert.equal(computeEffectiveStatus(endingNow, now), 'Completed');
+  
+  // Reservation on a future date - should be Confirmed regardless of time
+  const futureDate = {
+    status: 'Confirmed',
+    reservationDate: '2026-11-25',
+    endTime: '10:00',
+  };
+  assert.equal(computeEffectiveStatus(futureDate, now), 'Confirmed');
 });

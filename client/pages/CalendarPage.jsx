@@ -35,8 +35,9 @@ const FLOORS = ['All Floors', 'First Floor', 'Second Floor', 'Third Floor', 'Fou
 const STATUS_OPTIONS = ['All', 'Confirmed', 'Pending', 'Completed', 'Rejected', 'Cancelled'];
 const HOURS = Array.from({ length: 17 }, (_, i) => i + 6); // 06:00..22:00
 
-function getStatusPillClass(status) {
-  return `calendar-event-${String(status || 'pending').toLowerCase().replace(/\s+/g, '-')}`;
+function getStatusPillClass(status, effectiveStatus) {
+  const displayStatus = effectiveStatus || status;
+  return `calendar-event-${String(displayStatus || 'pending').toLowerCase().replace(/\s+/g, '-')}`;
 }
 
 export function CalendarPage() {
@@ -515,7 +516,7 @@ export function CalendarPage() {
         >
           <span className="status-text status-confirmed">Confirmed</span>
           <span className="status-text status-pending">Pending</span>
-          <span className="status-text status-open">Completed</span>
+          <span className="status-text status-completed">Completed</span>
           <span className="status-text status-rejected">Rejected / Cancelled</span>
           <span style={{ marginLeft: 'auto', color: 'var(--ink-muted)' }} className="tabular">
             {events.length} visible {events.length === 1 ? 'entry' : 'entries'}
@@ -636,14 +637,14 @@ export function CalendarPage() {
                           <button
                             key={ev.id}
                             type="button"
-                            className={`calendar-event-pill ${getStatusPillClass(ev.status)} ${
+                            className={`calendar-event-pill ${getStatusPillClass(ev.status, ev.effectiveStatus)} ${
                               ev.conflict ? 'calendar-event-conflict' : ''
                             }`}
                             onClick={() => openEventDetail(ev)}
                           >
                             <div className="calendar-event-top">
                               <span className="tabular">{ev.startTime}</span>
-                              <span>{ev.status}</span>
+                              <span>{ev.effectiveStatus || ev.status}</span>
                             </div>
                             <div className="calendar-event-title">
                               {ev.facilityCode} · {ev.purpose}
@@ -665,24 +666,29 @@ export function CalendarPage() {
                           </button>
                         )}
 
-                        {dayEvents.length > 0 && (
+{dayEvents.length > 0 && (
                           <div className="calendar-mobile-dots" aria-hidden="true">
-                            {dayEvents.slice(0, 4).map((ev) => (
-                              <span
-                                key={ev.id}
-                                style={{
-                                  width: '7px',
-                                  height: '7px',
-                                  borderRadius: '999px',
-                                  background:
-                                    ev.status === 'Confirmed'
-                                      ? '#5eead4'
-                                      : ev.status === 'Pending'
+                            {dayEvents.slice(0, 4).map((ev) => {
+                              const displayStatus = ev.effectiveStatus || ev.status;
+                              return (
+                                <span
+                                  key={ev.id}
+                                  style={{
+                                    width: '7px',
+                                    height: '7px',
+                                    borderRadius: '999px',
+                                    background:
+                                      displayStatus === 'Confirmed'
+                                        ? '#5eead4'
+                                        : displayStatus === 'Pending'
                                         ? '#fcd34d'
+                                        : displayStatus === 'Completed'
+                                        ? '#a5f3fc'
                                         : '#fda4af',
-                                }}
-                              />
-                            ))}
+                                  }}
+                                />
+                              );
+                            })}
                           </div>
                         )}
                       </div>
@@ -717,7 +723,7 @@ export function CalendarPage() {
                         <button
                           key={ev.id}
                           type="button"
-                          className={`calendar-event-pill ${getStatusPillClass(ev.status)}`}
+                          className={`calendar-event-pill ${getStatusPillClass(ev.status, ev.effectiveStatus)}`}
                           style={{ padding: '0.6rem 0.75rem' }}
                           onClick={() => openEventDetail(ev)}
                         >
@@ -725,7 +731,7 @@ export function CalendarPage() {
                             <span className="tabular">
                               {ev.startTime}–{ev.endTime} · {ev.facilityCode}
                             </span>
-                            <span>{ev.status}</span>
+                            <span>{ev.effectiveStatus || ev.status}</span>
                           </div>
                           <div style={{ fontSize: '0.84rem', marginTop: '0.2rem' }}>{ev.purpose}</div>
                         </button>
@@ -797,7 +803,7 @@ export function CalendarPage() {
                             <button
                               key={ev.id}
                               type="button"
-                              className={`calendar-week-event-block ${getStatusPillClass(ev.status)} ${
+                              className={`calendar-week-event-block ${getStatusPillClass(ev.status, ev.effectiveStatus)} ${
                                 ev.conflict ? 'calendar-event-conflict' : ''
                               }`}
                               style={{ top: `${topPx + 2}px`, height: `${heightPx - 4}px` }}
@@ -808,7 +814,7 @@ export function CalendarPage() {
                             >
                               <div className="calendar-event-top">
                                 <span className="tabular">{ev.facilityCode}</span>
-                                <span>{ev.status}</span>
+                                <span>{ev.effectiveStatus || ev.status}</span>
                               </div>
                               <div className="calendar-event-title">
                                 {ev.startTime}–{ev.endTime} · {ev.purpose}
@@ -888,9 +894,9 @@ export function CalendarPage() {
                             </div>
 
                             <span
-                              className={`status-text status-${ev.status.toLowerCase().replace(/\s+/g, '-')}`}
+                              className={`status-text status-${(ev.effectiveStatus || ev.status).toLowerCase().replace(/\s+/g, '-')}`}
                             >
-                              {ev.status}
+                              {ev.effectiveStatus || ev.status}
                             </span>
                           </div>
 
@@ -1042,9 +1048,9 @@ export function CalendarPage() {
                   <span className="tabular">#{selectedEvent.id}</span>
                   <span aria-hidden="true">·</span>
                   <span
-                    className={`status-text status-${selectedEvent.status.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`status-text status-${(selectedEvent.effectiveStatus || selectedEvent.status).toLowerCase().replace(/\s+/g, '-')}`}
                   >
-                    {selectedEvent.status}
+                    {selectedEvent.effectiveStatus || selectedEvent.status}
                   </span>
                 </div>
                 <h2 style={{ fontSize: '1.25rem', marginTop: '0.2rem' }}>

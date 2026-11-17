@@ -374,6 +374,10 @@
   color: var(--accent-sage);
 }
 
+.status-completed {
+  color: var(--accent-cyan);
+}
+
 .status-pending,
 .status-in-progress,
 .status-maintenance {

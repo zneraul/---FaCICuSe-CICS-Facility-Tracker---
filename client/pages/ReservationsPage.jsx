@@ -4,7 +4,7 @@ import { CalendarDays, CalendarPlus } from 'lucide-react';
 import { AppShell } from '../components/AppShell.jsx';
 import { apiRequest } from '../services/api.js';
 
-const STATUS_TABS = ['All', 'Pending', 'Confirmed', 'Rejected', 'Cancelled'];
+const STATUS_TABS = ['All', 'Pending', 'Confirmed', 'Rejected', 'Cancelled', 'Completed'];
 
 export function ReservationsPage() {
   const [reservations, setReservations] = useState([]);
@@ -163,9 +163,9 @@ export function ReservationsPage() {
                       </td>
                       <td>
                         <span
-                          className={`status-text status-${item.status.toLowerCase().replace(/\s+/g, '-')}`}
+                          className={`status-text status-${(item.effectiveStatus || item.status).toLowerCase().replace(/\s+/g, '-')}`}
                         >
-                          {item.status}
+                          {item.effectiveStatus || item.status}
                         </span>
                       </td>
                       <td>

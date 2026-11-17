@@ -168,6 +168,24 @@ export function assertCanRescheduleReservation(actorRole, reservation) {
   }
 }
 
+/**
+ * Compute the effective display status for a reservation.
+ * Past Confirmed reservations appear as "Completed" without mutating stored data.
+ * @param {Object} reservation - Reservation object with status, reservationDate, endTime
+ * @param {string} [nowIso=new Date().toISOString()] - Reference timestamp (for testing)
+ * @returns {string} Effective status for UI display
+ */
+export function computeEffectiveStatus(reservation, nowIso = new Date().toISOString()) {
+  const { status, reservationDate, endTime } = reservation;
+  if (status !== ReservationStatus.CONFIRMED) return status;
+  // Check if the reservation's end time has passed
+  const endDateTime = new Date(`${reservationDate}T${endTime}:00`);
+  if (endDateTime <= new Date(nowIso)) {
+    return 'Completed';
+  }
+  return status;
+}
+
 export function detectScheduleConflicts(reservations, facilities) {
   const safeReservations = Array.isArray(reservations) ? reservations : [];
   const safeFacilities = (Array.isArray(facilities) ? facilities : []).filter((f) => !f.isArchived);

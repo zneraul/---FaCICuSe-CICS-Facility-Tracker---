@@ -11,6 +11,7 @@ import {
   assertCanReviewReservation,
   assertReservationValid,
   detectScheduleConflicts,
+  computeEffectiveStatus,
 } from '../../domain/rules.js';
 
 export function createReservationUseCases({
@@ -82,6 +83,7 @@ export function createReservationUseCases({
     },
 
     async getCalendarSchedule(actor, filters = {}) {
+      const todayIso = new Date().toISOString().slice(0, 10);
       const [allFacilities, allReservations] = await Promise.all([
         facilityRepo.listAll(),
         reservationRepo.listAll(),
@@ -155,6 +157,7 @@ export function createReservationUseCases({
           const isMine = r.userId === actor.id;
           const fac = facilityMap.get(r.facilityId);
           const conflict = conflictMap.get(r.id) || null;
+          const effectiveStatus = computeEffectiveStatus(r, todayIso);
           return {
             id: r.id,
             facilityId: r.facilityId,
@@ -168,6 +171,7 @@ export function createReservationUseCases({
             startTime: r.startTime,
             endTime: r.endTime,
             status: r.status,
+            effectiveStatus,
             isMine,
             academicBlock: isAdmin || isMine ? (r.academicBlock || null) : null,
             attendeesCount: isAdmin || isMine ? r.attendeesCount : null,
@@ -324,10 +328,15 @@ export function createReservationUseCases({
 
     async listUserReservations(actor, statusFilter = 'All') {
       const rows = await reservationRepo.listByUserId(actor.id);
+      const todayIso = new Date().toISOString().slice(0, 10);
+      const enriched = rows.map((r) => ({
+        ...r,
+        effectiveStatus: computeEffectiveStatus(r, todayIso),
+      }));
       if (!statusFilter || statusFilter === 'All') {
-        return rows;
+        return enriched;
       }
-      return rows.filter((row) => row.status === statusFilter);
+      return enriched.filter((row) => row.status === statusFilter);
     },
 
     async cancelUserReservation(actor, reservationId) {
@@ -372,10 +381,15 @@ export function createReservationUseCases({
         throw new AuthorizationError('Only System Administrators may view all campus reservations.');
       }
       const rows = await reservationRepo.listAll();
+      const todayIso = new Date().toISOString().slice(0, 10);
+      const enriched = rows.map((r) => ({
+        ...r,
+        effectiveStatus: computeEffectiveStatus(r, todayIso),
+      }));
       if (!statusFilter || statusFilter === 'All') {
-        return rows;
+        return enriched;
       }
-      return rows.filter((row) => row.status === statusFilter);
+      return enriched.filter((row) => row.status === statusFilter);
     },
 
     async reviewReservation(actor, reservationId, { status, reviewNote }) {

@@ -70,6 +70,7 @@ export const PROJECT_INFO = Object.freeze({
     facilityCount: 37,
     reservableCount: 26,
     nonReservableCount: 11,
+    reservableLearningCapacity: 40,
     categoryTotals: Object.freeze({
       Learning: 26,
       Administrative: 6,
@@ -111,7 +112,7 @@ function learningRoom(code, floor, name, description, imageUrl = IMG_CLASSROOM) 
     category: 'Learning',
     building: CICS_BUILDING_NAME,
     floor,
-    capacity: null,
+    capacity: 40,
     description,
     amenities: '[]',
     status: 'Available',

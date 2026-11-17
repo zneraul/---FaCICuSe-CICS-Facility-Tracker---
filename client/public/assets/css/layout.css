@@ -295,6 +295,8 @@
   -webkit-backdrop-filter: var(--blur-lg);
   border: 1px solid var(--glass-border-light);
   box-shadow: var(--glass-shadow-sm);
+  position: relative;
+  z-index: 40;
 }
 
 .app-topbar-left {

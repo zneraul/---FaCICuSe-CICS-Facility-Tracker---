@@ -7,6 +7,7 @@ import {
   CalendarCheck2,
   CalendarDays,
   ClipboardList,
+  Clock,
   LayoutDashboard,
   LogOut,
   Menu,
@@ -25,6 +26,29 @@ export function AppShell({ title, primaryAction, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
+
+  // Live clock
+  const [currentTime, setCurrentTime] = useState(() =>
+    new Date().toLocaleString([], {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    })
+  );
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentTime(new Date().toLocaleString([], {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }));
+    }, 60_000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -199,6 +223,25 @@ export function AppShell({ title, primaryAction, children }) {
             </div>
 
             <div className="app-topbar-actions">
+              <div
+                className="app-topbar-time"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  fontVariantNumeric: 'tabular-nums',
+                  color: 'var(--ink-secondary)',
+                  fontSize: '0.85rem',
+                  fontWeight: 500,
+                  whiteSpace: 'nowrap',
+                }}
+                aria-live="polite"
+                aria-label="Current time"
+              >
+                <Clock size={14} aria-hidden="true" style={{ color: 'var(--ink-muted)' }} />
+                {currentTime}
+              </div>
+
               {primaryAction}
 
               <div className="popover-anchor">
