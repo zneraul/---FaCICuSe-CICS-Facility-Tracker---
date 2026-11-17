@@ -31,7 +31,7 @@ export default defineConfig({
     user,
     password,
     database: sqlDbName,
-    ssl: false,
+    ssl: { rejectUnauthorized: false },
   },
   verbose: true,
 });
