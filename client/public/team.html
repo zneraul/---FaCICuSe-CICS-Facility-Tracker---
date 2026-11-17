@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Team &amp; Course Details — FaCICuSe (IT 314)</title>
+    <meta
+      name="description"
+      content="FaCICuSe project team members, IT 314 Web System and Technologies course details, and Hexagonal Architecture integration at Batangas State University – Alangilan."
+    />
+    <link rel="icon" type="image/png" href="/assets/aistudio/facicuse-logo_3cb5a6f2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tokens.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/landing-html.css" />
+  </head>
+  <body>
+    <div class="ambient-canvas">
+      <div class="ambient-backdrop" aria-hidden="true"></div>
+      <div class="ambient-scrim" aria-hidden="true"></div>
+
+      <header class="public-header">
+        <div class="public-header-inner">
+          <a href="/#home" class="brand-lockup">
+            <span class="brand-logo-badge">
+              <img
+                src="/assets/aistudio/facicuse-logo_3cb5a6f2.png"
+                alt="FaCICuSe logo"
+                class="brand-logo-img"
+                width="28"
+                height="28"
+              />
+            </span>
+            <span class="brand-wordmark" data-project-field="name">FaCICuSe</span>
+          </a>
+
+          <nav class="public-nav-links" aria-label="Primary navigation">
+            <a href="/" class="public-nav-link">Home</a>
+            <a href="/about" class="public-nav-link">Project Overview</a>
+            <a href="/team" class="public-nav-link active" aria-current="page">Team &amp; Course</a>
+            <a href="/#facilities" class="public-nav-link">Live Catalog</a>
+            <a href="/#reservations" class="public-nav-link">Reservations</a>
+            <a href="/#contact" class="public-nav-link">Contact</a>
+          </nav>
+
+          <div class="header-actions-group">
+            <a href="/signin" id="header-auth-cta" class="btn btn-coral btn-sm">Sign In</a>
+            <button
+              type="button"
+              id="public-mobile-toggle"
+              class="icon-btn public-mobile-toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="public-mobile-menu"
+            >
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <nav id="public-mobile-menu" class="public-mobile-drawer" aria-label="Mobile navigation" hidden>
+          <a href="/" class="public-mobile-link">Home</a>
+          <a href="/about" class="public-mobile-link">Project Overview</a>
+          <a href="/team" class="public-mobile-link active" aria-current="page">Team &amp; Course</a>
+          <a href="/facilities" class="public-mobile-link">Full Facility Directory</a>
+          <a href="/#contact" class="public-mobile-link">Contact</a>
+        </nav>
+      </header>
+
+      <main class="public-main">
+        <!-- Course & Academic Identity -->
+        <section aria-labelledby="team-page-heading">
+          <article class="glass-panel subpage-hero-card">
+            <div class="meta-line">
+              <span data-project-field="course">IT 314 — Web System and Technologies (Final Project 2026)</span>
+              <span aria-hidden="true">·</span>
+              <span data-project-field="timeline">December 1–5, 2026</span>
+            </div>
+
+            <h1 id="team-page-heading" class="landing-headline">
+              Project Team &amp; <span class="landing-headline-gradient">Academic Context</span>
+            </h1>
+
+            <p class="landing-subhead">
+              Designed and developed by a three-member team from the
+              <span data-project-field="college">College of Informatics and Computing Sciences (CICS)</span>
+              at <span data-project-field="institutionShort">Batangas State University – Alangilan</span>.
+            </p>
+
+            <dl class="subpage-meta-dl">
+              <div>
+                <dt>Institution</dt>
+                <dd data-project-field="institution">
+                  Batangas State University – The National Engineering University, Alangilan Campus
+                </dd>
+              </div>
+              <div>
+                <dt>College</dt>
+                <dd data-project-field="college">College of Informatics and Computing Sciences (CICS)</dd>
+              </div>
+              <div>
+                <dt>Course &amp; Deliverable</dt>
+                <dd data-project-field="course">IT 314 — Web System and Technologies (Final Project 2026)</dd>
+              </div>
+              <div>
+                <dt>Project Duration</dt>
+                <dd data-project-field="timeline">December 1–5, 2026</dd>
+              </div>
+            </dl>
+          </article>
+        </section>
+
+        <!-- Verified Project Group Members -->
+        <section class="landing-section" aria-labelledby="members-heading">
+          <div class="section-header-row">
+            <div>
+              <span class="section-kicker">Group Introduction</span>
+              <h2 id="members-heading" class="section-title">Development &amp; Design Team</h2>
+              <p class="section-subcopy">
+                Official three-member project group listed in the WST Topic Proposal (Developer &amp; Designer).
+              </p>
+            </div>
+          </div>
+
+          <div id="team-members-container" class="team-members-grid">
+            <article class="glass-panel team-member-card">
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div class="team-member-monogram" aria-hidden="true">HA</div>
+                <div>
+                  <h3 class="team-member-name">Hazel C. Aguilar</h3>
+                  <div class="team-member-role">Developer &amp; Designer</div>
+                </div>
+              </div>
+              <div class="meta-line">
+                <span class="team-member-directory">Aguilar, Hazel C.</span>
+              </div>
+              <p class="card-body-copy">
+                CICS project member contributing across frontend design, web system functionality,
+                and facility coordination workflows.
+              </p>
+            </article>
+
+            <article class="glass-panel team-member-card">
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div class="team-member-monogram" aria-hidden="true">CA</div>
+                <div>
+                  <h3 class="team-member-name">Czharrina Mhariell B. Amon</h3>
+                  <div class="team-member-role">Developer &amp; Designer</div>
+                </div>
+              </div>
+              <div class="meta-line">
+                <span class="team-member-directory">Amon, Czharrina Mhariell B.</span>
+              </div>
+              <p class="card-body-copy">
+                CICS project member contributing across user experience, responsiveness, and visual
+                facility monitoring views.
+              </p>
+            </article>
+
+            <article class="glass-panel team-member-card">
+              <div style="display: flex; align-items: center; gap: 0.85rem;">
+                <div class="team-member-monogram" aria-hidden="true">BD</div>
+                <div>
+                  <h3 class="team-member-name">Bernardo Laurenz Ulyssys M. Domingo</h3>
+                  <div class="team-member-role">Developer &amp; Designer</div>
+                </div>
+              </div>
+              <div class="meta-line">
+                <span class="team-member-directory">Domingo, Bernardo Laurenz Ulyssys M.</span>
+              </div>
+              <p class="card-body-copy">
+                CICS project member contributing across Node.js/Express REST API integration,
+                scheduling logic, and system architecture.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Technical Architecture & Verification Note -->
+        <section class="landing-section" aria-labelledby="stack-heading">
+          <div class="about-split">
+            <article class="glass-panel-tinted about-panel-stack">
+              <div>
+                <span class="section-kicker">Architecture Alignment</span>
+                <h2 id="stack-heading" class="section-title">
+                  Vanilla HTML5/CSS3/JS Public Layer + Hexagonal Backend
+                </h2>
+                <p class="about-body-copy">
+                  Public pages (Home, Project Overview, and Team) are authored directly in semantic HTML5,
+                  external CSS3 stylesheets, and modular Vanilla JavaScript using Fetch JSON APIs,
+                  integrated with the React campus workspace over one shared Node.js + Express +
+                  PostgreSQL Hexagonal Architecture backend.
+                </p>
+              </div>
+              <div class="hero-cta-row">
+                <a href="/about" class="btn btn-glass btn-sm">View 37 CICS Facilities</a>
+                <a href="/facilities" class="btn btn-coral btn-sm">Open Booking Directory</a>
+              </div>
+            </article>
+
+            <aside class="glass-panel" aria-label="Document verification disclosure">
+              <span class="section-kicker">Verified Record Notice</span>
+              <h3 class="card-sub-heading">Accuracy Policy for Academic Details</h3>
+              <p class="card-body-copy" data-project-field="unverifiedDetailsNotice">
+                Academic degree program, class section, group number, adviser/instructor name, and
+                per-member role split are omitted because they are not specified in the provided
+                proposal or guideline documents.
+              </p>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="public-footer">
+        <div class="public-footer-inner">
+          <div>
+            <a href="/#home" class="brand-lockup">
+              <span class="brand-logo-badge">
+                <img
+                  src="/assets/aistudio/facicuse-logo_3cb5a6f2.png"
+                  alt="FaCICuSe logo"
+                  class="brand-logo-img"
+                  width="28"
+                  height="28"
+                />
+              </span>
+              <span class="brand-wordmark" data-project-field="name">FaCICuSe</span>
+            </a>
+            <p class="card-body-copy" style="margin-top: 0.65rem; max-width: 36ch;">
+              <strong data-project-field="meaning">Facility in Use</strong> —
+              <span data-project-field="tagline">Connected Insights, Coordinated Spaces</span>.
+            </p>
+            <address class="footer-address">
+              <span data-project-field="college">College of Informatics and Computing Sciences (CICS)</span>
+              <span data-project-field="institutionShort">Batangas State University – Alangilan</span>
+              <span data-project-field="campusAddress">Golden Country Homes, Alangilan, Batangas City, Batangas 4200</span>
+              <span>
+                Email:
+                <a href="mailto:facicuse@gmail.com" class="footer-address-link" data-project-field="contactEmail">facicuse@gmail.com</a>
+              </span>
+            </address>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Public Pages</strong>
+            <div class="footer-links-list">
+              <a href="/">Homepage (Long Scroll)</a>
+              <a href="/about">Project Overview (37 CICS Spaces)</a>
+              <a href="/team">Team &amp; Course Context</a>
+              <a href="/facilities">Live Booking Directory</a>
+            </div>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Homepage Sections</strong>
+            <div class="footer-links-list">
+              <a href="/#about">About FaCICuSe</a>
+              <a href="/#how-it-works">How It Works</a>
+              <a href="/#reservations">Live Availability</a>
+              <a href="/#maintenance">Maintenance Reporting</a>
+            </div>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Campus Access</strong>
+            <div class="footer-links-list">
+              <a href="/signin">University Sign In</a>
+              <a href="/app/dashboard">Authenticated Workspace</a>
+              <span class="footer-copyright" data-project-field="copyright">
+                © 2026 FaCICuSe · Batangas State University – Alangilan (CICS)
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/project-sync.js" defer></script>
+  </body>
+</html>

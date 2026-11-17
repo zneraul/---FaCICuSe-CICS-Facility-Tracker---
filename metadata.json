@@ -1,0 +1,6 @@
+{
+  "name": "FaCICuSe — University Facility Management",
+  "description": "Connected Insights, Coordinated Spaces. University facility discovery, reservation coordination, maintenance reporting, and administrative analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

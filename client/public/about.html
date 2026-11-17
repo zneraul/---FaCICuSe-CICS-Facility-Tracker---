@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About FaCICuSe — Project Overview &amp; CICS Building Scope</title>
+    <meta
+      name="description"
+      content="Official project overview and 5-floor CICS Building facility scope for FaCICuSe (Facility in Use) at Batangas State University – Alangilan Campus."
+    />
+    <link rel="icon" type="image/png" href="/assets/aistudio/facicuse-logo_3cb5a6f2.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/tokens.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/landing-html.css" />
+  </head>
+  <body>
+    <div class="ambient-canvas">
+      <div class="ambient-backdrop" aria-hidden="true"></div>
+      <div class="ambient-scrim" aria-hidden="true"></div>
+
+      <header class="public-header">
+        <div class="public-header-inner">
+          <a href="/#home" class="brand-lockup">
+            <span class="brand-logo-badge">
+              <img
+                src="/assets/aistudio/facicuse-logo_3cb5a6f2.png"
+                alt="FaCICuSe logo"
+                class="brand-logo-img"
+                width="28"
+                height="28"
+              />
+            </span>
+            <span class="brand-wordmark" data-project-field="name">FaCICuSe</span>
+          </a>
+
+          <nav class="public-nav-links" aria-label="Primary navigation">
+            <a href="/" class="public-nav-link">Home</a>
+            <a href="/about" class="public-nav-link active" aria-current="page">Project Overview</a>
+            <a href="/team" class="public-nav-link">Team &amp; Course</a>
+            <a href="/#facilities" class="public-nav-link">Live Catalog</a>
+            <a href="/#reservations" class="public-nav-link">Reservations</a>
+            <a href="/#contact" class="public-nav-link">Contact</a>
+          </nav>
+
+          <div class="header-actions-group">
+            <a href="/signin" id="header-auth-cta" class="btn btn-coral btn-sm">Sign In</a>
+            <button
+              type="button"
+              id="public-mobile-toggle"
+              class="icon-btn public-mobile-toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="public-mobile-menu"
+            >
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <nav id="public-mobile-menu" class="public-mobile-drawer" aria-label="Mobile navigation" hidden>
+          <a href="/" class="public-mobile-link">Home</a>
+          <a href="/about" class="public-mobile-link active" aria-current="page">Project Overview</a>
+          <a href="/team" class="public-mobile-link">Team &amp; Course</a>
+          <a href="/facilities" class="public-mobile-link">Full Facility Directory</a>
+          <a href="/#contact" class="public-mobile-link">Contact</a>
+        </nav>
+      </header>
+
+      <main class="public-main">
+        <!-- Project Overview Banner -->
+        <section aria-labelledby="about-page-heading">
+          <article class="glass-panel subpage-hero-card">
+            <div class="meta-line">
+              <span data-project-field="institutionShort">Batangas State University – Alangilan</span>
+              <span aria-hidden="true">·</span>
+              <span data-project-field="college">College of Informatics and Computing Sciences (CICS)</span>
+            </div>
+
+            <h1 id="about-page-heading" class="landing-headline">
+              <span data-project-field="name">FaCICuSe</span>
+              <span class="landing-headline-gradient" data-project-field="meaning">Facility in Use</span>
+            </h1>
+
+            <p class="landing-subhead" data-project-field="purpose">
+              Monitoring website for the CICS department facilities in real time that tracks actual
+              room utilization against the scheduled allocation and generates visual data analytics to
+              enhance room management efficiency.
+            </p>
+
+            <div class="hero-cta-row">
+              <a href="/facilities" class="btn btn-coral">Explore Live Booking Directory</a>
+              <a href="/team" class="btn btn-glass">Meet the Project Team</a>
+            </div>
+
+            <dl class="subpage-meta-dl">
+              <div>
+                <dt>Tagline</dt>
+                <dd data-project-field="tagline">Connected Insights, Coordinated Spaces</dd>
+              </div>
+              <div>
+                <dt>Institution &amp; Campus</dt>
+                <dd data-project-field="institution">
+                  Batangas State University – The National Engineering University, Alangilan Campus
+                </dd>
+              </div>
+              <div>
+                <dt>Building Scope</dt>
+                <dd data-project-field="buildingScope.summary">1 Building · 5 Floors · 37 Facilities</dd>
+              </div>
+              <div>
+                <dt>Course Context</dt>
+                <dd data-project-field="course">IT 314 — Web System and Technologies (Final Project 2026)</dd>
+              </div>
+            </dl>
+          </article>
+        </section>
+
+        <!-- Proposed CICS Building Breakdown -->
+        <section class="landing-section" aria-labelledby="scope-heading">
+          <div class="section-header-row">
+            <div>
+              <span class="section-kicker">5-Floor College Building</span>
+              <h2 id="scope-heading" class="section-title">CICS Building Allocation Overview</h2>
+              <p class="section-subcopy">
+                All 37 facilities across the 5-floor CICS building provide learning, administrative,
+                and support rooms for students, faculty members, and employees.
+              </p>
+            </div>
+          </div>
+
+          <div class="cics-scope-grid">
+            <article class="glass-panel">
+              <span class="step-number">26 SPACES</span>
+              <h3 class="card-sub-heading">Learning Facilities</h3>
+              <p class="card-body-copy">
+                Classrooms 101–106, 201–202, 401, &amp; 501–506; Computer Laboratories 1–6; Physics,
+                Tech, &amp; Information Technology Laboratories; plus SMART &amp; Electronics Distance Learning.
+              </p>
+            </article>
+
+            <article class="glass-panel">
+              <span class="step-number">06 SPACES</span>
+              <h3 class="card-sub-heading">Administrative Facilities</h3>
+              <p class="card-body-copy">
+                Dean's Office, Computer Engineering Faculty, CICS Faculty, CICS Student Services,
+                Consultation Office, and the CICS Organizations Office.
+              </p>
+            </article>
+
+            <article class="glass-panel">
+              <span class="step-number">05 SPACES</span>
+              <h3 class="card-sub-heading">Support Facilities</h3>
+              <p class="card-body-copy">
+                First-floor Utility Room for maintenance supplies alongside dedicated Female and Male
+                Restrooms on the 2nd and 3rd Floors.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Interactive CICS 37-Facility Catalog -->
+        <section class="landing-section" aria-labelledby="cics-catalog-heading">
+          <div class="section-header-row">
+            <div>
+              <span class="section-kicker">Canonical System Inventory</span>
+              <h2 id="cics-catalog-heading" class="section-title">
+                CICS Building Room Directory (Floors 1–5)
+              </h2>
+              <p id="cics-filtered-count" class="section-subcopy">
+                Loading 37 CICS Building spaces...
+              </p>
+            </div>
+          </div>
+
+          <div class="cics-filter-row">
+            <div class="v10-tabs" role="tablist" aria-label="CICS facility categories" id="cics-category-tabs">
+              <button type="button" role="tab" aria-selected="true" class="v10-tab-btn active" data-cics-category="All">All Categories</button>
+              <button type="button" role="tab" aria-selected="false" class="v10-tab-btn" data-cics-category="Learning">Learning</button>
+              <button type="button" role="tab" aria-selected="false" class="v10-tab-btn" data-cics-category="Administrative">Administrative</button>
+              <button type="button" role="tab" aria-selected="false" class="v10-tab-btn" data-cics-category="Support">Support</button>
+            </div>
+
+            <div class="cics-floor-select">
+              <label for="cics-floor-select" class="sr-only">Filter by CICS floor</label>
+              <select id="cics-floor-select" class="field-select">
+                <option value="All Floors">All 5 Floors</option>
+                <option value="First Floor">First Floor</option>
+                <option value="Second Floor">Second Floor</option>
+                <option value="Third Floor">Third Floor</option>
+                <option value="Fourth Floor">Fourth Floor</option>
+                <option value="Fifth Floor">Fifth Floor</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="cics-facilities-grid" class="cics-room-grid" aria-live="polite">
+            <div class="glass-panel state-panel-center" style="grid-column: 1 / -1;">
+              Loading CICS Building inventory...
+            </div>
+          </div>
+        </section>
+
+        <!-- BSIT Academic Block Format Reference -->
+        <section class="landing-section" aria-labelledby="academic-block-heading">
+          <div class="section-header-row">
+            <div>
+              <span class="section-kicker">BSIT Scheduling Standard</span>
+              <h2 id="academic-block-heading" class="section-title">
+                Academic Block / Section Format Reference
+              </h2>
+              <p class="section-subcopy">
+                Optional section tagging follows <code id="block-rule-code">IT-&lt;Year&gt;&lt;Sem&gt;&lt;Block&gt;</code>
+                and remains strictly separated from CICS Building room identifiers.
+              </p>
+            </div>
+          </div>
+
+          <div id="academic-block-grid" class="cics-scope-grid" style="grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));"></div>
+          <p id="academic-block-note" class="card-body-copy" style="margin-top: 0.9rem;"></p>
+        </section>
+
+        <!-- Scheduling Integrity Notice -->
+        <section class="landing-section" aria-label="Operational accuracy policy">
+          <aside class="alert-banner alert-info">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+            <span>
+              Live reservations and administrative utilization analytics are evaluated strictly on the
+              Node.js/Express Hexagonal backend. Scheduled booking windows never fabricate unverified
+              physical sensor occupancy, room capacities, or unconfirmed student block enrollments.
+            </span>
+          </aside>
+        </section>
+      </main>
+
+      <footer id="contact" class="public-footer">
+        <div class="public-footer-inner">
+          <div>
+            <a href="/#home" class="brand-lockup">
+              <span class="brand-logo-badge">
+                <img
+                  src="/assets/aistudio/facicuse-logo_3cb5a6f2.png"
+                  alt="FaCICuSe logo"
+                  class="brand-logo-img"
+                  width="28"
+                  height="28"
+                />
+              </span>
+              <span class="brand-wordmark" data-project-field="name">FaCICuSe</span>
+            </a>
+            <p class="card-body-copy" style="margin-top: 0.65rem; max-width: 36ch;">
+              <strong data-project-field="meaning">Facility in Use</strong> —
+              <span data-project-field="tagline">Connected Insights, Coordinated Spaces</span>.
+            </p>
+            <address class="footer-address">
+              <span data-project-field="college">College of Informatics and Computing Sciences (CICS)</span>
+              <span data-project-field="institutionShort">Batangas State University – Alangilan</span>
+              <span data-project-field="campusAddress">Golden Country Homes, Alangilan, Batangas City, Batangas 4200</span>
+              <span>
+                Email:
+                <a href="mailto:facicuse@gmail.com" class="footer-address-link" data-project-field="contactEmail">facicuse@gmail.com</a>
+              </span>
+            </address>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Public Pages</strong>
+            <div class="footer-links-list">
+              <a href="/">Homepage (Long Scroll)</a>
+              <a href="/about">Project Overview (37 CICS Spaces)</a>
+              <a href="/team">Team &amp; Course Context</a>
+              <a href="/facilities">Live Booking Directory</a>
+            </div>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Homepage Sections</strong>
+            <div class="footer-links-list">
+              <a href="/#about">About FaCICuSe</a>
+              <a href="/#how-it-works">How It Works</a>
+              <a href="/#reservations">Live Availability</a>
+              <a href="/#maintenance">Maintenance Reporting</a>
+            </div>
+          </div>
+
+          <div>
+            <strong class="footer-col-title">Campus Access</strong>
+            <div class="footer-links-list">
+              <a href="/signin">University Sign In</a>
+              <a href="/app/dashboard">Authenticated Workspace</a>
+              <span class="footer-copyright" data-project-field="copyright">
+                © 2026 FaCICuSe · Batangas State University – Alangilan (CICS)
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="/assets/js/project-sync.js" defer></script>
+  </body>
+</html>

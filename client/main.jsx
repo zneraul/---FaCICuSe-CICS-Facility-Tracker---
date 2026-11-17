@@ -1,0 +1,10 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import './public/assets/css/tokens.css';
+import './public/assets/css/layout.css';
+import './public/assets/css/components.css';
+import './styles/calendar.css';
+import './styles/analytics.css';
+
+createRoot(document.getElementById('root')).render(<App />);
