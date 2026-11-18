@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
-import { LandingPage } from './pages/LandingPage.jsx';
 import { FacilitiesDirectoryPage } from './pages/FacilitiesDirectoryPage.jsx';
 import { FacilityDetailPage } from './pages/FacilityDetailPage.jsx';
 import { SignInPage } from './pages/SignInPage.jsx';
@@ -59,7 +58,6 @@ export default function App() {
       <AuthProvider>
         <Routes>
           {/* Public Website Routes */}
-          <Route path="/" element={<LandingPage />} />
           <Route path="/facilities" element={<FacilitiesDirectoryPage authenticated={false} />} />
           <Route path="/facilities/:id" element={<FacilityDetailPage authenticated={false} />} />
           <Route path="/signin" element={<SignInPage />} />

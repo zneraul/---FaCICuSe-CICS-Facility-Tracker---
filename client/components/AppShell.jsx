@@ -83,8 +83,8 @@ export function AppShell({ title, primaryAction, children }) {
   }
 
   async function handleLogout() {
-    navigate('/', { replace: true });
     await logout();
+    window.location.replace('/');
   }
 
   const isAdmin = user?.role === 'admin';

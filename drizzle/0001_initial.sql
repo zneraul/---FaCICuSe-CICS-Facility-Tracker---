@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS "users" (
   "full_name" text NOT NULL,
   "role" text DEFAULT 'student' NOT NULL,
   "department" text,
+  "academic_block" text,
   "is_demo" boolean DEFAULT false NOT NULL,
   "is_active" boolean DEFAULT true NOT NULL,
   "created_at" timestamp DEFAULT now()
@@ -17,7 +18,7 @@ CREATE TABLE IF NOT EXISTS "facilities" (
   "category" text NOT NULL,
   "building" text NOT NULL,
   "floor" text NOT NULL,
-  "capacity" integer NOT NULL,
+  "capacity" integer,
   "description" text NOT NULL,
   "amenities" text NOT NULL,
   "status" text DEFAULT 'Available' NOT NULL,
@@ -25,6 +26,8 @@ CREATE TABLE IF NOT EXISTS "facilities" (
   "open_hour" text DEFAULT '07:00' NOT NULL,
   "close_hour" text DEFAULT '21:00' NOT NULL,
   "image_url" text NOT NULL,
+  "is_reservable" boolean DEFAULT true NOT NULL,
+  "is_archived" boolean DEFAULT false NOT NULL,
   "is_demo" boolean DEFAULT false NOT NULL,
   "created_at" timestamp DEFAULT now()
 );
@@ -37,6 +40,7 @@ CREATE TABLE IF NOT EXISTS "reservations" (
   "start_time" text NOT NULL,
   "end_time" text NOT NULL,
   "purpose" text NOT NULL,
+  "academic_block" text,
   "attendees_count" integer DEFAULT 1 NOT NULL,
   "status" text DEFAULT 'Pending' NOT NULL,
   "reviewer_id" integer REFERENCES "users"("id"),
